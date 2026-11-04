@@ -47,4 +47,4 @@ Questo software gestisce posta privata: leggi [SECURITY.md](SECURITY.md) prima d
 
 ## Licenza
 
-[GNU GPL v3.0](LICENSE) — puoi usarlo e modificarlo; le versioni modificate che distribuisci devono restare GPL-3.0 con il sorgente disponibile.
+[GNU General Public License v3.0](LICENSE) — puoi usarlo e modificarlo; le versioni modificate che distribuisci devono restare GPL-3.0 con il sorgente disponibile.
