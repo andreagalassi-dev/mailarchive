@@ -1,0 +1,26 @@
+# ==============================================================================
+# MailArchive - Configurazione Apache (.htaccess) per Plesk
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Protezione file e cartelle sensibili
+    RewriteRule ^\.env$ - [F,L,NC]
+    RewriteRule ^(storage|cron|database|scripts)(/.*)?$ - [F,L,NC]
+
+    # 2. Instradamento API e Health Check verso il router PHP
+    RewriteCond %{REQUEST_URI} ^/(health|ping) [NC]
+    RewriteRule ^(health|ping)$ api/index.php [QSA,L]
+
+    RewriteCond %{REQUEST_URI} ^/api/ [NC]
+    RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+    # 3. Servizio file statici reali (se il file o la directory esiste fisicamente)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 4. Fallback verso index.html per la SPA (Single Page Application)
+    RewriteRule ^ index.html [L]
+</IfModule>

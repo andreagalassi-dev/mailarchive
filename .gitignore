@@ -1,0 +1,42 @@
+# --- Segreti e configurazione locale (NON committare mai) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+cookies.txt
+
+# --- Dati reali: database, email, allegati ---
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.eml
+*.mbox
+backend/storage/*/*
+!backend/storage/*/.gitkeep
+
+# --- Build e dipendenze ---
+node_modules/
+dist/
+release/
+.cache/
+
+# --- Log e temporanei ---
+*.log
+logs/
+tmp/
+temp/
+
+# --- Editor e sistema ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# La cartella storage/tmp deve esistere (con il solo .gitkeep) anche se "tmp/" e' ignorata altrove
+!backend/storage/tmp/
